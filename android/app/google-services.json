@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "42105481646",
+    "project_id": "assignmentwtf",
+    "storage_bucket": "assignmentwtf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42105481646:android:870e63010bcc7236c7c03f",
+        "android_client_info": {
+          "package_name": "com.example.wtf_assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42105481646-57cnjp5fih6v6km3a30muqp3i62ni445.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaqXkGC5A0U1JsYgPKwZW8ERMoWxDOv0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42105481646-57cnjp5fih6v6km3a30muqp3i62ni445.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
