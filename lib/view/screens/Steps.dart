@@ -100,8 +100,12 @@ class _StepsScreenState extends State<StepsScreen> {
                       Container(
                         height: height/7.4,
                         width: width/3.5,
-                        child: const Card(
-                          child: Icon(Icons.camera_alt,size: 50,),
+                        child:  Card(
+                          child:IconButton(
+                              onPressed: (){
+                                RecipeController.instance.pickImage();
+                              },
+                              icon: const Icon(Icons.camera_alt,size: 50,)),
                         ),
                       ),
                     ],
@@ -160,16 +164,20 @@ class _StepsScreenState extends State<StepsScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: ()async{
-                          // await RecipeController.instance.recipeAdd(File(widget.recipeImage.toString()),widget.recipeName, widget.serves,
-                          //     widget.person, widget.pTime, widget.cTime, stepController.text,
-                          //     instructionController.text,personalController.text);
+                          if(stepController.text.isNotEmpty && instructionController.text.isNotEmpty && personalController.text.isNotEmpty){
+                            if(mounted){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const RecipeView()));
+                            }
+                            Get.snackbar("Recipe is Stored", "Successfully data stored");
+                            // await RecipeController.instance.recipeAdd(File(widget.recipeImage.toString()),widget.recipeName, widget.serves,
+                            //     widget.person, widget.pTime, widget.cTime, stepController.text,
+                            //     instructionController.text,personalController.text);
+                            await RecipeController.instance.recipeAdd(widget.recipeName, widget.serves,
+                                widget.person, widget.pTime, widget.cTime, stepController.text,
+                                instructionController.text,personalController.text);
+                          }
 
-                          await RecipeController.instance.recipeAdd(widget.recipeName, widget.serves,
-                              widget.person, widget.pTime, widget.cTime, stepController.text,
-                              instructionController.text,personalController.text);
-                          // Get.off(RecipeView());
-                          Get.snackbar("Recipe is Stored", "Successfully data stored");
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>RecipeView()));
+                          Get.snackbar("Add All the Fields", "it is required");
 
                         },
                         style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),

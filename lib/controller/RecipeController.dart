@@ -12,6 +12,7 @@ class RecipeController extends GetxController {
   List<dynamic> recipeList = [];
   File? recipeImg;
 
+
   pickImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image == null) return;

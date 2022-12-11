@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:wtf_assignment/controller/AuthController.dart';
 import 'package:wtf_assignment/controller/RecipeController.dart';
 import 'package:wtf_assignment/view/screens/Ingredients.dart';
@@ -156,18 +158,20 @@ class _RecipeScreenState extends State<RecipeScreen> {
                   children: [
                     ElevatedButton(
                       onPressed: ()async{
+                        if(recipeNameController.text.isNotEmpty &&servController.text.isNotEmpty && personController.text.isNotEmpty &&
+                        pTimeController.text.isNotEmpty && cTimeController.text.isNotEmpty){
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>StepsScreen(
+                          //   recipeImage: RecipeController.instance.recipeImg.toString(),
+                          //   recipeName: recipeNameController.text,serves: servController.text,person: personController.text,
+                          //   pTime: pTimeController.text,cTime: cTimeController.text,
+                          // )));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>StepsScreen(
+                            recipeName: recipeNameController.text,serves: servController.text,person: personController.text,
+                            pTime: pTimeController.text,cTime: cTimeController.text,
+                          )));
 
-                        // Navigator.push(context, MaterialPageRoute(builder: (context)=>StepsScreen(
-                        //   recipeImage: RecipeController.instance.recipeImg.toString(),
-                        //   recipeName: recipeNameController.text,serves: servController.text,person: personController.text,
-                        //   pTime: pTimeController.text,cTime: cTimeController.text,
-                        // )));
-
-
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>StepsScreen(
-                          recipeName: recipeNameController.text,serves: servController.text,person: personController.text,
-                          pTime: pTimeController.text,cTime: cTimeController.text,
-                        )));
+                        }
+                        Get.snackbar("Add All the Fields", "it is required to go next step");
                       },
                       style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
                       child: const Icon(Icons.check),
